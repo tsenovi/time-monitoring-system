@@ -42,6 +42,14 @@ public class UserDatabase {
         }return null;
     }
 
+    private Employee getEmployeeById(long id){
+        for (Employee e : employees) {
+            if (e.getAccountId() == id){
+                return e;
+            }
+        }return null;
+    }
+
     public Account getAccount(String name){
         Account account = getAdmin(name);
         if (account == null){
