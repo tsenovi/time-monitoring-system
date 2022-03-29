@@ -1,38 +1,28 @@
 package protocol;
 
 import Authentication.PublicAccount;
-import Authentication.UserDatabase;
+import Authentication.AccountDatabase;
 import client.Client;
 import client.ClientDatabase;
-import parse.DateParser;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ProtocolDatabase {
 
-    private List<Protocol> protocols;
-    private ClientDatabase clientsDb;
-    private UserDatabase userDatabase;
+    private final Set<Protocol> protocols;
 
     public ProtocolDatabase() {
-        this.protocols = new ArrayList<>();
-        this.clientsDb = new ClientDatabase();
-        this.userDatabase = new UserDatabase();
-
+        this.protocols = new HashSet<>();
     }
 
-    private void initDefaultProtocol() {
-        protocols.add(new Protocol(
-                DateParser.parse("26/03/2022", "10:20"),
-                userDatabase.getAccount("Ivan"),
-                new ArrayList<clientTime<Client, Integer>>(new clientTime<>(clientsDb.getClientById(0), 120))
-                ));
-
+    public Set<Protocol> getProtocols() {
+        return protocols;
     }
 
-    public void addProtocol(Protocol protocol){
+    public void addProtocol(Protocol protocol) {
         protocols.add(protocol);
     }
-
-
 }

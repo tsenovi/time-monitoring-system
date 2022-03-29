@@ -3,12 +3,12 @@ package Authentication;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDatabase {
+public class AccountDatabase {
 
     private final List<Employee> employees;
     private final Admin admin;
 
-    public UserDatabase() {
+    public AccountDatabase() {
         this.employees = new ArrayList<>();
         this.admin = initDefaultAdmin();
         initDefaultEmployee();

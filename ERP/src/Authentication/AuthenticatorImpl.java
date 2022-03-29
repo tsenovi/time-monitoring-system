@@ -2,11 +2,11 @@ package Authentication;
 
 public class AuthenticatorImpl implements Authenticator {
 
-    private final UserDatabase userDatabase;
+    private final AccountDatabase accountDatabase;
     private Account loggedUser;
 
     public AuthenticatorImpl() {
-        this.userDatabase = new UserDatabase();
+        this.accountDatabase = new AccountDatabase();
         this.loggedUser = null;
     }
 
@@ -17,7 +17,7 @@ public class AuthenticatorImpl implements Authenticator {
 
     @Override
     public LoginStatus login(String name, String password) {
-        Account account = userDatabase.getAccount(name);
+        Account account = accountDatabase.getAccount(name);
         if (account != null && account.getAccountPassword().equals(password)){
             loggedUser = account;
             return loggedUser instanceof Admin ? LoginStatus.ADMIN_LOGGED : LoginStatus.EMPLOYEE_LOGGED;
@@ -32,12 +32,12 @@ public class AuthenticatorImpl implements Authenticator {
 
     @Override
     public boolean registerEmployee(String name, String password) {
-        if (userDatabase.accountExists(name)){
+        if (accountDatabase.accountExists(name)){
             return false;
         }
 
         Employee employee = new Employee(name, password);
-        userDatabase.addEmployee(employee);
+        accountDatabase.addEmployee(employee);
         return true;
     }
 
