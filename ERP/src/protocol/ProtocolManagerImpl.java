@@ -3,6 +3,8 @@ package protocol;
 import Authentication.PublicAccount;
 import client.Client;
 
+import java.util.HashMap;
+
 public class ProtocolManagerImpl {
 
     private final ProtocolDatabase protocolDatabase;
@@ -11,9 +13,8 @@ public class ProtocolManagerImpl {
         this.protocolDatabase = new ProtocolDatabase();
     }
 
-    public void createProtocol(PublicAccount account, Client client, int workingTime) {
-        Protocol currentProtocol = new Protocol(account);
-        currentProtocol.addWorkingTimeForClient(client, workingTime);
+    public void createProtocol(PublicAccount account, HashMap<Client, Integer> workingTimesPerClient) {
+        Protocol currentProtocol = new Protocol(account, workingTimesPerClient);
         protocolDatabase.addProtocol(currentProtocol);
     }
 }

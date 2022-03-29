@@ -12,10 +12,10 @@ public class Protocol {
     private final PublicAccount employee;
     private final HashMap<Client, Integer> workingTimesPerClient;
 
-    public Protocol(PublicAccount employee) {
+    public Protocol(PublicAccount employee, HashMap<Client, Integer> workingTimesPerClient) {
         this.protocolDate = new Date();
         this.employee = employee;
-        this.workingTimesPerClient = new HashMap<>();
+        this.workingTimesPerClient = workingTimesPerClient;
     }
 
     public Date getProtocolDate() {
@@ -28,10 +28,6 @@ public class Protocol {
 
     public HashMap<Client, Integer> getWorkingTimesPerClient() {
         return workingTimesPerClient;
-    }
-
-    public void addWorkingTimeForClient(Client client, int workingTime){
-        workingTimesPerClient.put(client, workingTime);
     }
 
     @Override
