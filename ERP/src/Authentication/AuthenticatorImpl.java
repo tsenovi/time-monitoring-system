@@ -45,4 +45,8 @@ public class AuthenticatorImpl implements Authenticator {
     public void logout() {
         loggedUser = null;
     }
+
+    public PublicAccount getLoggedAccount() {
+        return new PublicAccount(loggedUser);
+    }
 }

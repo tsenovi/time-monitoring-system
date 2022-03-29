@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/protocol/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/AuthenticatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/AuthenticatorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/ProgramRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

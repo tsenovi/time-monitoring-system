@@ -1,5 +1,6 @@
 package console;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleManagerImpl implements ConsoleManager {
@@ -7,11 +8,6 @@ public class ConsoleManagerImpl implements ConsoleManager {
 
     public ConsoleManagerImpl() {
         this.sc = new Scanner(System.in);
-    }
-
-    @Override
-    public void show(String text) {
-        System.out.println(text);
     }
 
     @Override
@@ -26,5 +22,28 @@ public class ConsoleManagerImpl implements ConsoleManager {
             numberInput = getTextInput();
         } while (!numberInput.matches("[0-9]+"));
         return Integer.parseInt(numberInput);
+    }
+
+    @Override
+    public <T> int getListIndexInput(List<T> list) {
+        int indexInput = getDecimalInput();
+        while (indexInput < 1 || indexInput > list.size()) {
+            show("Invalid input, try again: ");
+            indexInput = getDecimalInput();
+        }
+
+        return indexInput - 1;
+    }
+
+    @Override
+    public <T> void printList(List<T> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(i + 1 + ". " + list.get(i).toString());
+        }
+    }
+
+    @Override
+    public void show(String text) {
+        System.out.println(text);
     }
 }
