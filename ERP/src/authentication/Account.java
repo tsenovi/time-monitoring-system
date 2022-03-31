@@ -1,4 +1,4 @@
-package Authentication;
+package authentication;
 
 public class Account {
     private static int accountCount = 0;

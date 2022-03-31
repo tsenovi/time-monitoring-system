@@ -12,4 +12,8 @@ public interface ConsoleManager {
     <T> void printList(List<T> list);
 
     void show(String text);
+
+    void showAdminOptions();
+
+    void showEmployeeOptions();
 }

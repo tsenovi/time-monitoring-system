@@ -1,33 +1,33 @@
-package Authentication;
+package authentication;
 
 public class AuthenticatorImpl implements Authenticator {
 
     private final AccountDatabase accountDatabase;
-    private Account loggedUser;
+    private Account loggedAccount;
 
     public AuthenticatorImpl() {
         this.accountDatabase = new AccountDatabase();
-        this.loggedUser = null;
+        this.loggedAccount = null;
     }
 
     @Override
-    public boolean hasLoggedUser() {
-        return loggedUser != null;
+    public boolean hasLoggedAccount() {
+        return loggedAccount != null;
     }
 
     @Override
     public LoginStatus login(String name, String password) {
         Account account = accountDatabase.getAccount(name);
         if (account != null && account.getAccountPassword().equals(password)){
-            loggedUser = account;
-            return loggedUser instanceof Admin ? LoginStatus.ADMIN_LOGGED : LoginStatus.EMPLOYEE_LOGGED;
+            loggedAccount = account;
+            return loggedAccount instanceof Admin ? LoginStatus.ADMIN_LOGGED : LoginStatus.EMPLOYEE_LOGGED;
         }
         return LoginStatus.LOGIN_FAILED;
     }
 
     @Override
-    public boolean isAdminLogged() {
-        return loggedUser instanceof Admin;
+    public boolean hasLoggedAdmin() {
+        return loggedAccount instanceof Admin;
     }
 
     @Override
@@ -43,10 +43,11 @@ public class AuthenticatorImpl implements Authenticator {
 
     @Override
     public void logout() {
-        loggedUser = null;
+        loggedAccount = null;
     }
 
+    @Override
     public PublicAccount getLoggedAccount() {
-        return new PublicAccount(loggedUser);
+        return new PublicAccount(loggedAccount);
     }
 }
