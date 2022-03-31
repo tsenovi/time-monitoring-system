@@ -1,8 +1,14 @@
+import authentication.AuthenticatorImpl;
+import console.ConsoleManagerImpl;
+import system.ProgramRunner;
 
 public class App {
 
     public static void main(String[] args) {
 
-        //TODO for some reason I can't RUN this file. Check if you can.
+        new ProgramRunner(
+                new AuthenticatorImpl(),
+                new ConsoleManagerImpl()
+        ).start();
     }
 }

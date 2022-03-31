@@ -1,14 +1,16 @@
-package Authentication;
+package authentication;
 
 public interface Authenticator {
 
-    boolean hasLoggedUser();
+    boolean hasLoggedAccount();
 
     LoginStatus login(String name, String password);
 
-    boolean isAdminLogged();
+    boolean hasLoggedAdmin();
 
     boolean registerEmployee(String empName, String empPassword);
 
     void logout();
+
+    PublicAccount getLoggedAccount();
 }

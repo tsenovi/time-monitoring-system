@@ -46,4 +46,20 @@ public class ConsoleManagerImpl implements ConsoleManager {
     public void show(String text) {
         System.out.println(text);
     }
+
+    @Override
+    public void showAdminOptions() {
+        show("""
+                1. Logout
+                2. Create new client
+                3. Register new employee
+                4. Employee statistics""");
+    }
+
+    @Override
+    public void showEmployeeOptions() {
+        show("""
+                1. Logout
+                2. Create protocol for today""");
+    }
 }

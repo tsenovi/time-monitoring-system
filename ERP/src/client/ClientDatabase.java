@@ -1,6 +1,5 @@
 package client;
 
-import Authentication.Employee;
 import parse.DateParser;
 
 import java.util.ArrayList;

@@ -1,9 +1,12 @@
 package system;
 
-import Authentication.AuthenticatorImpl;
-import Authentication.PublicAccount;
+import authentication.Authenticator;
+import authentication.AuthenticatorImpl;
+import authentication.LoginStatus;
+import authentication.PublicAccount;
 import client.Client;
 import client.ClientManagerImpl;
+import console.ConsoleManager;
 import console.ConsoleManagerImpl;
 import protocol.ProtocolManagerImpl;
 
@@ -12,23 +15,72 @@ import java.util.List;
 
 public class ProgramRunner {
 
-    private AuthenticatorImpl authenticator;
-    private ClientManagerImpl clientManager;
-    private ConsoleManagerImpl consoleManager;
-    private ProtocolManagerImpl protocolManager;
+    private final Authenticator authenticator;
+    private final ClientManagerImpl clientManager;
+    private final ConsoleManager consoleManager;
+    private final ProtocolManagerImpl protocolManager;
 
-    public ProgramRunner() {
-        this.authenticator = new AuthenticatorImpl();
+    public ProgramRunner(Authenticator authenticator, ConsoleManager consoleManager) {
+        this.authenticator = authenticator;
         this.clientManager = new ClientManagerImpl();
-        this.consoleManager = new ConsoleManagerImpl();
+        this.consoleManager = consoleManager;
         this.protocolManager = new ProtocolManagerImpl();
     }
 
     public void start() {
         while (true) {
             consoleManager.show("\tEmployee Tracking System");
-            createProtocolForTodayProcess();
+            if (authenticator.hasLoggedAccount()) {
+                processAccountOptions();
+            } else {
+                startLoginProcess();
+            }
         }
+    }
+
+    private void startLoginProcess() {
+        consoleManager.show("Please login to continue!");
+        String username = getCredentials("Username: ");
+        String password = getCredentials("Password: ");
+
+        LoginStatus loginStatus = authenticator.login(username, password);
+        if (loginStatus == LoginStatus.LOGIN_FAILED) {
+            consoleManager.show("Login failed!");
+        } else {
+            consoleManager.show("Login successful!");
+        }
+    }
+
+    private void processAccountOptions() {
+        if (authenticator.hasLoggedAdmin()) {
+            runAdminOptions();
+        } else {
+            runEmployeeOptions();
+        }
+    }
+
+    private void runAdminOptions() {
+        consoleManager.showAdminOptions();
+        int accountChoice = consoleManager.getDecimalInput();
+        switch (accountChoice) {
+            case 1 -> authenticator.logout();
+            default -> consoleManager.show("No such option!");
+        }
+    }
+
+    private void runEmployeeOptions() {
+        consoleManager.showEmployeeOptions();
+        int accountChoice = consoleManager.getDecimalInput();
+        switch (accountChoice) {
+            case 1 -> authenticator.logout();
+            case 2 -> createProtocolForTodayProcess();
+            default -> consoleManager.show("No such option!");
+        }
+    }
+
+    private String getCredentials(String text) {
+        consoleManager.show(text);
+        return consoleManager.getTextInput();
     }
 
     private void createProtocolForTodayProcess() {

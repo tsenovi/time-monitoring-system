@@ -1,6 +1,6 @@
 package protocol;
 
-import Authentication.PublicAccount;
+import authentication.PublicAccount;
 import client.Client;
 
 import java.util.Date;
