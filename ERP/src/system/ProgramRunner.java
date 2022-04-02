@@ -85,7 +85,7 @@ public class ProgramRunner {
 
     private void createProtocolForTodayProcess() {
         PublicAccount employee = authenticator.getLoggedAccount();
-        List<Client> clients = clientManager.getClientDatabase().getClients();
+        List<Client> clients = clientManager.getClients();
         HashMap<Client, Integer> workingTimesPerClient = getClientIntegerHashMap(clients);
 
         protocolManager.createProtocol(employee, workingTimesPerClient);

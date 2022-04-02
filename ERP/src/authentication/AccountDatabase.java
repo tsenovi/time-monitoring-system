@@ -33,7 +33,7 @@ public class AccountDatabase {
             return admin;
         } return null;
     }
-    //TODO with stream
+
     private Employee getEmployee(String name){
         for (Employee e : employees) {
             if (e.getAccountName().equalsIgnoreCase(name)){
