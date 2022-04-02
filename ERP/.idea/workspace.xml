@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/AccountDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/AccountDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Authenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/Authenticator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/AuthenticatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/AuthenticatorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/LoginStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/LoginStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication/PublicAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/PublicAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/ProgramRunner.java" afterDir="false" />
-    </list>
+    <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
