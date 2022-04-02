@@ -32,4 +32,13 @@ public class Client {
     public Date getContractEndDate() {
         return contractEndDate;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientId=" + clientId +
+                ", name='" + name + '\'' +
+                ", projectName='" + projectName + '\'' +
+                '}';
+    }
 }

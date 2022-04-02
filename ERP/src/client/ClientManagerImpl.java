@@ -1,5 +1,7 @@
 package client;
 
+import java.util.List;
+
 public class ClientManagerImpl {
 
     private final ClientDatabase clientDatabase;
@@ -8,7 +10,7 @@ public class ClientManagerImpl {
         this.clientDatabase = new ClientDatabase();
     }
 
-    public ClientDatabase getClientDatabase() {
-        return clientDatabase;
+    public List<Client> getClients() {
+        return clientDatabase.getClients();
     }
 }
