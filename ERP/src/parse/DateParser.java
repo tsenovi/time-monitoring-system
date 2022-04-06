@@ -29,7 +29,6 @@ public class DateParser {
         return isCorrectInput(time, sdfTime);
     }
 
-
     public static Date parse(String date, String time) {
         Date dateOnly = null;
         Date timeOnly = null;
@@ -58,5 +57,15 @@ public class DateParser {
         }
 
         return timeOnly;
+    }
+
+    public static Date dateParse(String date){
+        Date dateOnly = null;
+        try {
+            dateOnly = sdfDate.parse(date);
+        } catch (ParseException e){
+            e.printStackTrace();
+        }
+        return dateOnly;
     }
 }
