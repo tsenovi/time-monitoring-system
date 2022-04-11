@@ -29,7 +29,6 @@ public class DateParser {
         return isCorrectInput(time, sdfTime);
     }
 
-
     public static Date parse(String date, String time) {
         Date dateOnly = null;
         Date timeOnly = null;

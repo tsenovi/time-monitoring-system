@@ -51,7 +51,7 @@ public class ClientDatabase {
     public void removeClient(Client client) {
         clients.remove(client);
     }
-
+  
     public boolean clientExist(String clientName) {
         return getClient(clientName) != null;
     }
