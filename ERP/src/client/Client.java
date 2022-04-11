@@ -1,24 +1,18 @@
 package client;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Client {
-    private static int clientCount = 0;
-    private final long clientId;
+public class Client implements Serializable {
+
     private final String name;
     private final String projectName;
     private final Date contractEndDate;
 
     public Client(String name, String projectName, Date contractEndDate) {
-        clientCount++;
-        this.clientId = clientCount;
         this.name = name;
         this.projectName = projectName;
         this.contractEndDate = contractEndDate;
-    }
-
-    public long getClientId() {
-        return clientId;
     }
 
     public String getName() {
@@ -36,9 +30,9 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "clientId=" + clientId +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", projectName='" + projectName + '\'' +
+                ", contractEndDate=" + contractEndDate +
                 '}';
     }
 }

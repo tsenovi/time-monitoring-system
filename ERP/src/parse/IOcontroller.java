@@ -4,6 +4,7 @@ import java.io.*;
 
 public class IOcontroller {
 
+    @SuppressWarnings("unchecked")
     public static <T> T loadFile(String fileName){
         T data = null;
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName))) {

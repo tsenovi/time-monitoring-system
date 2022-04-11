@@ -1,13 +1,11 @@
 package system;
 
 import authentication.Authenticator;
-import authentication.AuthenticatorImpl;
 import authentication.LoginStatus;
 import authentication.PublicAccount;
 import client.Client;
-import client.ClientManagerImpl;
+import client.ClientManager;
 import console.ConsoleManager;
-import console.ConsoleManagerImpl;
 import parse.DateParser;
 import protocol.ProtocolManagerImpl;
 
@@ -17,13 +15,13 @@ import java.util.List;
 public class ProgramRunner {
 
     private final Authenticator authenticator;
-    private final ClientManagerImpl clientManager;
+    private final ClientManager clientManager;
     private final ConsoleManager consoleManager;
     private final ProtocolManagerImpl protocolManager;
 
-    public ProgramRunner(Authenticator authenticator, ConsoleManager consoleManager) {
+    public ProgramRunner(Authenticator authenticator, ClientManager clientManager, ConsoleManager consoleManager) {
         this.authenticator = authenticator;
-        this.clientManager = new ClientManagerImpl();
+        this.clientManager = clientManager;
         this.consoleManager = consoleManager;
         this.protocolManager = new ProtocolManagerImpl();
     }
