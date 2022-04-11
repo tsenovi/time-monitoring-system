@@ -59,4 +59,14 @@ public class DateParser {
 
         return timeOnly;
     }
+
+    public static Date dateParse(String date){
+        Date dateOnly = null;
+        try {
+            dateOnly = sdfDate.parse(date);
+        } catch (ParseException e){
+            e.printStackTrace();
+        }
+        return dateOnly;
+    }
 }

@@ -2,11 +2,11 @@ package authentication;
 
 public class AuthenticatorImpl implements Authenticator {
 
-    private final AccountDatabase accountDatabase;
+    private final AccountDatabaseImpl accountDatabase;
     private Account loggedAccount;
 
     public AuthenticatorImpl() {
-        this.accountDatabase = new AccountDatabase();
+        this.accountDatabase = new AccountDatabaseImpl();
         this.loggedAccount = null;
     }
 
