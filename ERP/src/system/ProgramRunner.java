@@ -8,6 +8,7 @@ import client.Client;
 import client.ClientManagerImpl;
 import console.ConsoleManager;
 import console.ConsoleManagerImpl;
+import parse.DateParser;
 import protocol.ProtocolManagerImpl;
 
 import java.util.HashMap;
@@ -88,7 +89,7 @@ public class ProgramRunner {
         String clientName = consoleManager.getTextInput();
         consoleManager.show("Enter client project name: ");
         String clientProject = consoleManager.getTextInput();
-        consoleManager.show("Enter contract end date in format (DD/MM/yyyy): ");
+        consoleManager.show("Enter contract end date: " + DateParser.DATE_FORMAT);
         String contractEndDate = consoleManager.getTextInput();
 
         boolean isRegistered = clientManager.registerClient(clientName, clientProject, contractEndDate);

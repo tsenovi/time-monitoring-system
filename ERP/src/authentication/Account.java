@@ -1,6 +1,8 @@
 package authentication;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private static int accountCount = 0;
     private final long accountId;
     private final String userName;

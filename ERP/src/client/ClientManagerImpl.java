@@ -18,10 +18,11 @@ public class ClientManagerImpl {
     }
 
     public boolean registerClient(String clientName, String clientProject, String contractEndDate){
-        Date endDate = DateParser.dateParse(contractEndDate);
         if (clientDatabase.clientExist(clientName)){
             return false;
         }
+
+        Date endDate = DateParser.dateParse(contractEndDate);
         Client client = new Client(clientName, clientProject, endDate);
         clientDatabase.addClient(client);
         return true;
