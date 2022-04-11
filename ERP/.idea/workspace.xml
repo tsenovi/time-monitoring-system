@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="" />
+    <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML-ERP-system.drawio.png" beforeDir="false" afterPath="$PROJECT_DIR$/UML-ERP-system.drawio.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/AuthenticatorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/AuthenticatorImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/client/ClientDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/client/ClientDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/client/ClientManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/client/ClientManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/parse/DateParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/parse/DateParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/ClientDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientDatabaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/ClientManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parse/DateParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parse/DateParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parse/IOcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parse/IOcontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/ProgramRunner.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +68,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="console" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="client" />
     </key>
   </component>
   <component name="RunManager">
