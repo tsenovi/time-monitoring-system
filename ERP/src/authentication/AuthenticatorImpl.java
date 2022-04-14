@@ -1,5 +1,8 @@
 package authentication;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class AuthenticatorImpl implements Authenticator {
 
     private final AccountDatabaseImpl accountDatabase;
@@ -44,6 +47,14 @@ public class AuthenticatorImpl implements Authenticator {
     @Override
     public void logout() {
         loggedAccount = null;
+    }
+
+    @Override
+    public List<PublicAccount> getEmployees() {
+        return accountDatabase.getEmployees()
+                .stream()
+                .map(PublicAccount::new)
+                .collect(Collectors.toList());
     }
 
     @Override

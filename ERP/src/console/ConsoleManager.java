@@ -1,6 +1,9 @@
 package console;
 
+import client.Client;
+
 import java.util.List;
+import java.util.Map;
 
 public interface ConsoleManager {
     String getTextInput();
@@ -16,4 +19,8 @@ public interface ConsoleManager {
     void showAdminOptions();
 
     void showEmployeeOptions();
+
+    void showStatisticsOptions();
+
+    <K, V> void printMap(Map<K, V> map);
 }

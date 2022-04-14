@@ -1,6 +1,7 @@
 package console;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleManagerImpl implements ConsoleManager {
@@ -43,6 +44,13 @@ public class ConsoleManagerImpl implements ConsoleManager {
     }
 
     @Override
+    public <K, V> void printMap(Map<K, V> map) {
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+
+    @Override
     public void show(String text) {
         System.out.println(text);
     }
@@ -61,5 +69,13 @@ public class ConsoleManagerImpl implements ConsoleManager {
         show("""
                 1. Logout
                 2. Create protocol for today""");
+    }
+
+    @Override
+    public void showStatisticsOptions() {
+        show("""
+                \tSearch by:
+                1. Employee name
+                2. Week number""");
     }
 }

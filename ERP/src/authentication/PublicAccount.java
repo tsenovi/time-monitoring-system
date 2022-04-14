@@ -1,12 +1,19 @@
 package authentication;
 
-public class PublicAccount {
+import java.io.Serializable;
 
-    public final long accountId;
+public class PublicAccount implements Serializable {
+
     public final String userName;
 
     public PublicAccount(Account account) {
-        this.accountId = account.getAccountId();
         this.userName = account.getAccountName();
+    }
+
+    @Override
+    public String toString() {
+        return "PublicAccount{" +
+                "userName='" + userName + '\'' +
+                '}';
     }
 }

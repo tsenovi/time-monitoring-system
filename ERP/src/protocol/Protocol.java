@@ -3,10 +3,11 @@ package protocol;
 import authentication.PublicAccount;
 import client.Client;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Protocol {
+public class Protocol implements Serializable {
 
     private final Date protocolDate;
     private final PublicAccount employee;
