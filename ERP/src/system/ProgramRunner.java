@@ -11,6 +11,7 @@ import protocol.ProtocolManagerImpl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProgramRunner {
 
@@ -65,8 +66,34 @@ public class ProgramRunner {
             case 1 -> authenticator.logout();
             case 2 -> createNewClient();
             case 3 -> createNewEmployee();
+            case 4 -> viewStatisticsForEmployees();
             default -> consoleManager.show("No such option!");
         }
+    }
+
+    private void viewStatisticsForEmployees() {
+        consoleManager.showStatisticsOptions();
+        int accountChoice = consoleManager.getDecimalInput();
+        switch (accountChoice) {
+            case 1 -> runStatisticsByEmployeeName();
+            case 2 -> runStatisticsByWeekNumber();
+            default -> consoleManager.show("No such option!");
+        }
+    }
+
+    //TODO
+    private void runStatisticsByWeekNumber() {
+
+    }
+    //TODO
+    private void runStatisticsByEmployeeName() {
+        consoleManager.printList(authenticator.getEmployees());
+        consoleManager.show("Choose employee number:");
+        int accountChoice = consoleManager.getListIndexInput(authenticator.getEmployees());
+        String empName = authenticator.getEmployees().get(accountChoice).userName;
+
+        Map<Client, Integer> workingTimesPerClient = protocolManager.getWorkingTimesPerClientByEmployeeName(empName);
+        consoleManager.printMap(workingTimesPerClient);
     }
 
     private void createNewEmployee() {

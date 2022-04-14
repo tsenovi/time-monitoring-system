@@ -2,6 +2,7 @@ package client;
 
 import parse.IOcontroller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ public class ClientDatabaseImpl implements ClientDatabase {
     @Override
     public void addClient(Client client) {
         List<Client> clients = IOcontroller.loadFile(CLIENTS_FILE);
+        if (clients == null) clients = new ArrayList<>();
         clients.add(client);
         IOcontroller.overwriteFile(CLIENTS_FILE, clients);
     }

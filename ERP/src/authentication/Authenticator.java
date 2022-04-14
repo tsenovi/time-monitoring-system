@@ -1,5 +1,7 @@
 package authentication;
 
+import java.util.List;
+
 public interface Authenticator {
 
     boolean hasLoggedAccount();
@@ -11,6 +13,8 @@ public interface Authenticator {
     boolean registerEmployee(String empName, String empPassword);
 
     void logout();
+
+    List<PublicAccount> getEmployees();
 
     PublicAccount getLoggedAccount();
 }

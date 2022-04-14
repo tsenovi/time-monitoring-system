@@ -1,5 +1,7 @@
 package authentication;
+
 import parse.IOcontroller;
+
 import java.util.List;
 
 public class AccountDatabaseImpl implements AccountDatabase {
@@ -16,6 +18,11 @@ public class AccountDatabaseImpl implements AccountDatabase {
         List<Employee> employees = IOcontroller.loadFile(EMPLOYEES_FILE);
         employees.add(employee);
         IOcontroller.overwriteFile(EMPLOYEES_FILE, employees);
+    }
+
+    @Override
+    public List<Employee> getEmployees() {
+        return List.copyOf(IOcontroller.loadFile(EMPLOYEES_FILE));
     }
 
     @Override
