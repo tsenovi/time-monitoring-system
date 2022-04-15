@@ -1,19 +1,18 @@
 package protocol;
 
 import authentication.PublicAccount;
-import client.Client;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.List;
 
 public class Protocol implements Serializable {
 
     private final Date protocolDate;
     private final PublicAccount employee;
-    private final HashMap<Client, Integer> workingTimesPerClient;
+    private final List<Pair> workingTimesPerClient;
 
-    public Protocol(PublicAccount employee, HashMap<Client, Integer> workingTimesPerClient) {
+    public Protocol(PublicAccount employee, List<Pair> workingTimesPerClient) {
         this.protocolDate = new Date();
         this.employee = employee;
         this.workingTimesPerClient = workingTimesPerClient;
@@ -27,7 +26,7 @@ public class Protocol implements Serializable {
         return employee;
     }
 
-    public HashMap<Client, Integer> getWorkingTimesPerClient() {
+    public List<Pair> getWorkingTimesPerClient() {
         return workingTimesPerClient;
     }
 

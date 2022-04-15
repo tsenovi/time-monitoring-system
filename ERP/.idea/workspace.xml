@@ -6,30 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.db" beforeDir="false" afterPath="$PROJECT_DIR$/admin.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/employees.db" beforeDir="false" afterPath="$PROJECT_DIR$/employees.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabaseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabaseImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/Authenticator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/Authenticator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/AuthenticatorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/AuthenticatorImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/PublicAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/PublicAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/client/ClientDatabaseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/client/ClientDatabaseImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/console/ConsoleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/console/ConsoleManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/console/ConsoleManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/console/ConsoleManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/Protocol.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolDatabase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManagerImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/AccountDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/AccountDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/AccountDatabaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/AccountDatabaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/Authenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/Authenticator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/AuthenticatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/AuthenticatorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/PublicAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/PublicAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/ClientDatabaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientDatabaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/protocol/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/Protocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" afterDir="false" />
@@ -43,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

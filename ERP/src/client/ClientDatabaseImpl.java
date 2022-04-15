@@ -11,7 +11,6 @@ public class ClientDatabaseImpl implements ClientDatabase {
     private static final String CLIENTS_FILE = "clients.db";
 
     public ClientDatabaseImpl() {
-
     }
 
     @Override
