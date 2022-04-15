@@ -14,7 +14,7 @@ public class ProtocolManagerImpl implements ProtocolManager {
     private final ProtocolDatabase protocolDatabase;
 
     public ProtocolManagerImpl() {
-        this.protocolDatabase = new ProtocolDatabase();
+        this.protocolDatabase = new ProtocolDatabaseImpl();
     }
 
     @Override
