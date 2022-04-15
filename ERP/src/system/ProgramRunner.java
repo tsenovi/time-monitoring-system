@@ -7,9 +7,10 @@ import client.Client;
 import client.ClientManager;
 import console.ConsoleManager;
 import parse.DateParser;
-import protocol.ProtocolManagerImpl;
+import protocol.Pair;
+import protocol.ProtocolManager;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,13 +19,16 @@ public class ProgramRunner {
     private final Authenticator authenticator;
     private final ClientManager clientManager;
     private final ConsoleManager consoleManager;
-    private final ProtocolManagerImpl protocolManager;
+    private final ProtocolManager protocolManager;
 
-    public ProgramRunner(Authenticator authenticator, ClientManager clientManager, ConsoleManager consoleManager) {
+    public ProgramRunner(Authenticator authenticator,
+                         ClientManager clientManager,
+                         ConsoleManager consoleManager,
+                         ProtocolManager protocolManager) {
         this.authenticator = authenticator;
         this.clientManager = clientManager;
         this.consoleManager = consoleManager;
-        this.protocolManager = new ProtocolManagerImpl();
+        this.protocolManager = protocolManager;
     }
 
     public void start() {
@@ -85,7 +89,8 @@ public class ProgramRunner {
     private void runStatisticsByWeekNumber() {
 
     }
-    //TODO
+
+    //TODO - its working, but it can be improved!
     private void runStatisticsByEmployeeName() {
         consoleManager.printList(authenticator.getEmployees());
         consoleManager.show("Choose employee number:");
@@ -102,7 +107,7 @@ public class ProgramRunner {
         consoleManager.show("Enter employee password: ");
         String empPass = consoleManager.getTextInput();
         boolean isRegistered = authenticator.registerEmployee(empName, empPass);
-        if (isRegistered){
+        if (isRegistered) {
             consoleManager.show("New employee was successfully registered!");
         } else {
             consoleManager.show("This employee already exists!");
@@ -118,7 +123,7 @@ public class ProgramRunner {
         String contractEndDate = consoleManager.getTextInput();
 
         boolean isRegistered = clientManager.registerClient(clientName, clientProject, contractEndDate);
-        if (isRegistered){
+        if (isRegistered) {
             consoleManager.show("New client was successfully registered!");
         } else {
             consoleManager.show("This client already exists! ");
@@ -143,13 +148,13 @@ public class ProgramRunner {
     private void createProtocolForTodayProcess() {
         PublicAccount employee = authenticator.getLoggedAccount();
         List<Client> clients = clientManager.getClients();
-        HashMap<Client, Integer> workingTimesPerClient = getClientIntegerHashMap(clients);
+        List<Pair> workingTimesPerClient = getWorkingTimesPerClientInput(clients);
 
         protocolManager.createProtocol(employee, workingTimesPerClient);
     }
 
-    private HashMap<Client, Integer> getClientIntegerHashMap(List<Client> clients) {
-        HashMap<Client, Integer> workingTimesPerClient = new HashMap<>();
+    private List<Pair> getWorkingTimesPerClientInput(List<Client> clients) {
+        List<Pair> workingTimesPerClient = new ArrayList<>();
 
         while (true) {
             consoleManager.printList(clients);
@@ -157,7 +162,7 @@ public class ProgramRunner {
             Client selectedClient = clients.get(consoleManager.getListIndexInput(clients));
             consoleManager.show("Select working time in minutes: ");
             int selectedWorkingTime = consoleManager.getDecimalInput();
-            workingTimesPerClient.put(selectedClient, selectedWorkingTime);
+            workingTimesPerClient.add(new Pair(selectedClient, selectedWorkingTime));
 
             consoleManager.show("Continue Y/N?");
             String userChoice = consoleManager.getTextInput();

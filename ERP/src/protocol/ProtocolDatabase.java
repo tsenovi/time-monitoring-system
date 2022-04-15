@@ -18,8 +18,8 @@ public class ProtocolDatabase {
     }
 
     public void addProtocol(Protocol protocol) {
-//      List<Protocol> protocols = IOcontroller.loadFile(PROTOCOLS_FILE);
-        List<Protocol> protocols = new ArrayList<>();
+        List<Protocol> protocols = IOcontroller.loadFile(PROTOCOLS_FILE);
+        if (protocols == null) protocols = new ArrayList<>();
         protocols.add(protocol);
         IOcontroller.overwriteFile(PROTOCOLS_FILE, protocols);
     }

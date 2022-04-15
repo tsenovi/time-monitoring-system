@@ -1,6 +1,7 @@
 import authentication.AuthenticatorImpl;
 import client.ClientManagerImpl;
 import console.ConsoleManagerImpl;
+import protocol.ProtocolManagerImpl;
 import system.ProgramRunner;
 
 public class App {
@@ -10,7 +11,8 @@ public class App {
         new ProgramRunner(
                 new AuthenticatorImpl(),
                 new ClientManagerImpl(),
-                new ConsoleManagerImpl()
+                new ConsoleManagerImpl(),
+                new ProtocolManagerImpl()
         ).start();
     }
 }
