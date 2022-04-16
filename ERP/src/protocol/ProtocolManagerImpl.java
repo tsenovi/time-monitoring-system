@@ -1,5 +1,6 @@
 package protocol;
 
+import authentication.AuthenticatorImpl;
 import authentication.PublicAccount;
 import client.Client;
 
@@ -12,9 +13,18 @@ import java.util.stream.Collectors;
 public class ProtocolManagerImpl implements ProtocolManager {
 
     private final ProtocolDatabase protocolDatabase;
+    private static ProtocolManagerImpl instance;
 
-    public ProtocolManagerImpl() {
-        this.protocolDatabase = new ProtocolDatabaseImpl();
+    private ProtocolManagerImpl() {
+        this.protocolDatabase = ProtocolDatabaseImpl.getInstance();
+    }
+
+    public static ProtocolManagerImpl getInstance(){
+        ProtocolManagerImpl result = instance;
+        if (result == null){
+            instance = result = new ProtocolManagerImpl();
+        }
+        return result;
     }
 
     @Override

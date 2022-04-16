@@ -9,10 +9,10 @@ public class App {
     public static void main(String[] args) {
 
         new ProgramRunner(
-                new AuthenticatorImpl(),
-                new ClientManagerImpl(),
-                new ConsoleManagerImpl(),
-                new ProtocolManagerImpl()
+                AuthenticatorImpl.getInstance(),
+                ClientManagerImpl.getInstance(),
+                ConsoleManagerImpl.getInstance(),
+                ProtocolManagerImpl.getInstance()
         ).start();
     }
 }

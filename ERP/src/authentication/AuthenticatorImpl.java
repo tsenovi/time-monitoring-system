@@ -7,10 +7,19 @@ public class AuthenticatorImpl implements Authenticator {
 
     private final AccountDatabaseImpl accountDatabase;
     private Account loggedAccount;
+    private static AuthenticatorImpl instance;
 
-    public AuthenticatorImpl() {
-        this.accountDatabase = new AccountDatabaseImpl();
+    private AuthenticatorImpl() {
+        this.accountDatabase = AccountDatabaseImpl.getInstance();
         this.loggedAccount = null;
+    }
+
+    public static AuthenticatorImpl getInstance(){
+        AuthenticatorImpl result = instance;
+        if (result == null){
+            instance = result = new AuthenticatorImpl();
+        }
+        return result;
     }
 
     @Override

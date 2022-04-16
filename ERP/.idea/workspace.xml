@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientDatabaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientDatabaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/ProgramRunner.java" afterDir="false" />
-    </list>
+    <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
