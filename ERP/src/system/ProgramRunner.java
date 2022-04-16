@@ -1,6 +1,7 @@
 package system;
 
 import authentication.Authenticator;
+import authentication.Employee;
 import authentication.LoginStatus;
 import authentication.PublicAccount;
 import client.Client;
@@ -11,6 +12,7 @@ import protocol.Pair;
 import protocol.ProtocolManager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -87,7 +89,10 @@ public class ProgramRunner {
 
     //TODO
     private void runStatisticsByWeekNumber() {
-
+        consoleManager.show("Enter week number: ");
+        int weekNum = consoleManager.getDecimalInput();
+        Map<PublicAccount, Integer> workingTimePerEmployeePerWeek = protocolManager.getWorkingTimePerEmployeePerWeek(weekNum);
+        consoleManager.printMap(workingTimePerEmployeePerWeek);
     }
 
     //TODO - its working, but it can be improved!
@@ -146,11 +151,21 @@ public class ProgramRunner {
     }
 
     private void createProtocolForTodayProcess() {
+        Date selectedDate = getInputDate();
         PublicAccount employee = authenticator.getLoggedAccount();
         List<Client> clients = clientManager.getClients();
         List<Pair> workingTimesPerClient = getWorkingTimesPerClientInput(clients);
 
-        protocolManager.createProtocol(employee, workingTimesPerClient);
+        protocolManager.createProtocol(selectedDate, employee, workingTimesPerClient);
+    }
+
+    private Date getInputDate() {
+        consoleManager.show("Enter protocol date: " + DateParser.DATE_FORMAT);
+        String dateInput = consoleManager.getTextInput();
+        while (!DateParser.isCorrectDate(dateInput)) {
+            dateInput = consoleManager.getTextInput();
+        }
+        return DateParser.parse(dateInput);
     }
 
     private List<Pair> getWorkingTimesPerClientInput(List<Client> clients) {
