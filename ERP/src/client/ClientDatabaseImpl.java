@@ -1,5 +1,6 @@
 package client;
 
+import authentication.AuthenticatorImpl;
 import parse.IOcontroller;
 
 import java.util.ArrayList;
@@ -9,8 +10,17 @@ import java.util.Optional;
 public class ClientDatabaseImpl implements ClientDatabase {
 
     private static final String CLIENTS_FILE = "clients.db";
+    private static ClientDatabaseImpl instance;
 
-    public ClientDatabaseImpl() {
+    private ClientDatabaseImpl() {
+    }
+
+    public static ClientDatabaseImpl getInstance(){
+        ClientDatabaseImpl result = instance;
+        if (result == null){
+            instance = result = new ClientDatabaseImpl();
+        }
+        return result;
     }
 
     @Override

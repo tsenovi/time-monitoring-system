@@ -6,9 +6,18 @@ import java.util.Scanner;
 
 public class ConsoleManagerImpl implements ConsoleManager {
     private final Scanner sc;
+    private static ConsoleManagerImpl instance;
 
-    public ConsoleManagerImpl() {
+    private ConsoleManagerImpl() {
         this.sc = new Scanner(System.in);
+    }
+
+    public static ConsoleManagerImpl getInstance(){
+        ConsoleManagerImpl result = instance;
+        if (result == null){
+            instance = result = new ConsoleManagerImpl();
+        }
+        return result;
     }
 
     @Override

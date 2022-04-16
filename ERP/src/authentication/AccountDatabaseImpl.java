@@ -8,9 +8,18 @@ public class AccountDatabaseImpl implements AccountDatabase {
 
     private static final String ADMIN_FILE = "admin.db";
     private static final String EMPLOYEES_FILE = "employees.db";
+    private static AccountDatabaseImpl instance;
 
-    public AccountDatabaseImpl() {
+    private AccountDatabaseImpl() {
 
+    }
+
+    public static AccountDatabaseImpl getInstance(){
+        AccountDatabaseImpl result = instance;
+        if (result == null){
+            instance = result = new AccountDatabaseImpl();
+        }
+        return result;
     }
 
     @Override

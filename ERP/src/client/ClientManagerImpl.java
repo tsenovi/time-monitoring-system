@@ -8,9 +8,18 @@ import java.util.List;
 public class ClientManagerImpl implements ClientManager {
 
     private final ClientDatabase clientDatabase;
+    private static ClientManagerImpl instance;
 
-    public ClientManagerImpl() {
-        this.clientDatabase = new ClientDatabaseImpl();
+    private ClientManagerImpl() {
+        this.clientDatabase = ClientDatabaseImpl.getInstance();
+    }
+
+    public static ClientManagerImpl getInstance(){
+        ClientManagerImpl result = instance;
+        if (result == null){
+            instance = result = new ClientManagerImpl();
+        }
+        return result;
     }
 
     @Override

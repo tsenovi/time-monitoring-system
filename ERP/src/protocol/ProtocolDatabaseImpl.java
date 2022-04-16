@@ -1,5 +1,6 @@
 package protocol;
 
+import authentication.AuthenticatorImpl;
 import parse.IOcontroller;
 
 import java.util.ArrayList;
@@ -8,9 +9,18 @@ import java.util.List;
 public class ProtocolDatabaseImpl implements ProtocolDatabase {
 
     private static final String PROTOCOLS_FILE = "protocols.db";
+    private static ProtocolDatabaseImpl instance;
 
-    public ProtocolDatabaseImpl() {
+    private ProtocolDatabaseImpl() {
 
+    }
+
+    public static ProtocolDatabaseImpl getInstance(){
+        ProtocolDatabaseImpl result = instance;
+        if (result == null){
+            instance = result = new ProtocolDatabaseImpl();
+        }
+        return result;
     }
 
     @Override
