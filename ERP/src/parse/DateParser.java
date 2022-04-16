@@ -2,6 +2,7 @@ package parse;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateParser {
@@ -31,5 +32,11 @@ public class DateParser {
             e.printStackTrace();
         }
         return dateOnly;
+    }
+
+    public static int parseWeekNum(Date protocolDate) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(protocolDate);
+        return cal.get(Calendar.WEEK_OF_YEAR);
     }
 }

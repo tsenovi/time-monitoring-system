@@ -4,6 +4,7 @@ import authentication.PublicAccount;
 import client.Client;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -32,8 +33,22 @@ public class ProtocolManagerImpl implements ProtocolManager {
     }
 
     @Override
-    public void createProtocol(PublicAccount account, List<Pair> workingTimesPerClient) {
-        Protocol currentProtocol = new Protocol(account, workingTimesPerClient);
+    public void createProtocol(Date date, PublicAccount account, List<Pair> workingTimesPerClient) {
+        Protocol currentProtocol = new Protocol(date, account, workingTimesPerClient);
         protocolDatabase.addProtocol(currentProtocol);
+    }
+
+    @Override
+    public Map<PublicAccount, Integer> getWorkingTimePerEmployeePerWeek(int weekNum) {
+     return protocolDatabase.getProtocols().stream()
+                .filter(protocol -> protocol.getWeekNum() == weekNum)
+                 .collect(Collectors.groupingBy(Protocol::getEmployee))
+                 .entrySet().stream()
+                 .collect(Collectors.toMap(Map.Entry::getKey,
+                         entry -> entry.getValue().stream()
+                                 .map(Protocol::getWorkingTimesPerClient)
+                                 .flatMap(Collection::stream)
+                                 .mapToInt(Pair::getWorkingTime)
+                                 .sum()));
     }
 }

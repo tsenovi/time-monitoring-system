@@ -46,7 +46,7 @@ public class ConsoleManagerImpl implements ConsoleManager {
     @Override
     public <K, V> void printMap(Map<K, V> map) {
         for (Map.Entry<K, V> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+            System.out.println(entry.getKey() + " : " + entry.getValue() + " in minutes");
         }
     }
 
