@@ -1,7 +1,6 @@
 package client;
 
-import authentication.AuthenticatorImpl;
-import parse.IOcontroller;
+import parse.ControllerIO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +14,9 @@ public class ClientDatabaseImpl implements ClientDatabase {
     private ClientDatabaseImpl() {
     }
 
-    public static ClientDatabaseImpl getInstance(){
+    public static ClientDatabaseImpl getInstance() {
         ClientDatabaseImpl result = instance;
-        if (result == null){
+        if (result == null) {
             instance = result = new ClientDatabaseImpl();
         }
         return result;
@@ -25,15 +24,15 @@ public class ClientDatabaseImpl implements ClientDatabase {
 
     @Override
     public List<Client> getClients() {
-        return List.copyOf(IOcontroller.loadFile(CLIENTS_FILE));
+        return List.copyOf(ControllerIO.loadFile(CLIENTS_FILE));
     }
 
     @Override
     public void addClient(Client client) {
-        List<Client> clients = IOcontroller.loadFile(CLIENTS_FILE);
+        List<Client> clients = ControllerIO.loadFile(CLIENTS_FILE);
         if (clients == null) clients = new ArrayList<>();
         clients.add(client);
-        IOcontroller.overwriteFile(CLIENTS_FILE, clients);
+        ControllerIO.overwriteFile(CLIENTS_FILE, clients);
     }
 
     @Override
@@ -42,7 +41,7 @@ public class ClientDatabaseImpl implements ClientDatabase {
     }
 
     private Client getClient(String name) {
-        List<Client> clients = IOcontroller.loadFile(CLIENTS_FILE);
+        List<Client> clients = ControllerIO.loadFile(CLIENTS_FILE);
         Optional<Client> first = clients.stream()
                 .filter(user -> user.getName().equals(name))
                 .findFirst();

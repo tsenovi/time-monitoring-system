@@ -5,16 +5,17 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleManagerImpl implements ConsoleManager {
-    private final Scanner sc;
+
     private static ConsoleManagerImpl instance;
+    private final Scanner scanner;
 
     private ConsoleManagerImpl() {
-        this.sc = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
     }
 
-    public static ConsoleManagerImpl getInstance(){
+    public static ConsoleManagerImpl getInstance() {
         ConsoleManagerImpl result = instance;
-        if (result == null){
+        if (result == null) {
             instance = result = new ConsoleManagerImpl();
         }
         return result;
@@ -22,15 +23,16 @@ public class ConsoleManagerImpl implements ConsoleManager {
 
     @Override
     public String getTextInput() {
-        return sc.nextLine();
+        return scanner.nextLine();
     }
 
     @Override
     public int getDecimalInput() {
-        String numberInput;
-        do {
+        String numberInput = getTextInput();
+        while (!numberInput.matches("[0-9]+")) {
+            show("Invalid input, try again: ");
             numberInput = getTextInput();
-        } while (!numberInput.matches("[0-9]+"));
+        }
         return Integer.parseInt(numberInput);
     }
 
@@ -41,7 +43,6 @@ public class ConsoleManagerImpl implements ConsoleManager {
             show("Invalid input, try again: ");
             indexInput = getDecimalInput();
         }
-
         return indexInput - 1;
     }
 
@@ -55,7 +56,7 @@ public class ConsoleManagerImpl implements ConsoleManager {
     @Override
     public <K, V> void printMap(Map<K, V> map) {
         for (Map.Entry<K, V> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue() + " in minutes");
+            System.out.println(entry.getKey() + " : " + entry.getValue() + " minutes");
         }
     }
 
@@ -67,23 +68,25 @@ public class ConsoleManagerImpl implements ConsoleManager {
     @Override
     public void showAdminOptions() {
         show("""
+                \tAdmin Options:
                 1. Logout
-                2. Create new client
-                3. Register new employee
+                2. Create client
+                3. Register employee
                 4. Employee statistics""");
     }
 
     @Override
     public void showEmployeeOptions() {
         show("""
+                \tEmployee Options:
                 1. Logout
-                2. Create protocol for today""");
+                2. Create protocol""");
     }
 
     @Override
     public void showStatisticsOptions() {
         show("""
-                \tSearch by:
+                \tStatistics by:
                 1. Employee name
                 2. Week number""");
     }
