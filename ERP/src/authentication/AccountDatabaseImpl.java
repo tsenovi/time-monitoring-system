@@ -1,6 +1,6 @@
 package authentication;
 
-import parse.IOcontroller;
+import parse.ControllerIO;
 
 import java.util.List;
 
@@ -14,24 +14,24 @@ public class AccountDatabaseImpl implements AccountDatabase {
 
     }
 
-    public static AccountDatabaseImpl getInstance(){
+    public static AccountDatabaseImpl getInstance() {
         AccountDatabaseImpl result = instance;
-        if (result == null){
+        if (result == null) {
             instance = result = new AccountDatabaseImpl();
         }
         return result;
     }
 
     @Override
-    public void addEmployee(Employee employee){
-        List<Employee> employees = IOcontroller.loadFile(EMPLOYEES_FILE);
+    public void addEmployee(Employee employee) {
+        List<Employee> employees = ControllerIO.loadFile(EMPLOYEES_FILE);
         employees.add(employee);
-        IOcontroller.overwriteFile(EMPLOYEES_FILE, employees);
+        ControllerIO.overwriteFile(EMPLOYEES_FILE, employees);
     }
 
     @Override
     public List<Employee> getEmployees() {
-        return List.copyOf(IOcontroller.loadFile(EMPLOYEES_FILE));
+        return List.copyOf(ControllerIO.loadFile(EMPLOYEES_FILE));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class AccountDatabaseImpl implements AccountDatabase {
     }
 
     private Account getEmployee(String userName) {
-        List<Employee> employees = IOcontroller.loadFile(EMPLOYEES_FILE);
+        List<Employee> employees = ControllerIO.loadFile(EMPLOYEES_FILE);
         for (Employee employee : employees) {
             if (employee.getAccountName().equalsIgnoreCase(userName)) {
                 return employee;
@@ -59,7 +59,7 @@ public class AccountDatabaseImpl implements AccountDatabase {
     }
 
     private Account getAdmin(String userName) {
-        Admin admin = IOcontroller.loadFile(ADMIN_FILE);
+        Admin admin = ControllerIO.loadFile(ADMIN_FILE);
         if (admin.getAccountName().equalsIgnoreCase(userName)) return admin;
         return null;
     }

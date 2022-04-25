@@ -1,15 +1,18 @@
 package system;
 
 import authentication.Authenticator;
-import authentication.Employee;
+import authentication.AuthenticatorImpl;
 import authentication.LoginStatus;
 import authentication.PublicAccount;
 import client.Client;
 import client.ClientManager;
+import client.ClientManagerImpl;
 import console.ConsoleManager;
+import console.ConsoleManagerImpl;
 import parse.DateParser;
 import protocol.Pair;
 import protocol.ProtocolManager;
+import protocol.ProtocolManagerImpl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,19 +21,32 @@ import java.util.Map;
 
 public class ProgramRunner {
 
+    private static ProgramRunner instance;
     private final Authenticator authenticator;
     private final ClientManager clientManager;
     private final ConsoleManager consoleManager;
     private final ProtocolManager protocolManager;
 
-    public ProgramRunner(Authenticator authenticator,
-                         ClientManager clientManager,
-                         ConsoleManager consoleManager,
-                         ProtocolManager protocolManager) {
+    private ProgramRunner(Authenticator authenticator,
+                          ClientManager clientManager,
+                          ConsoleManager consoleManager,
+                          ProtocolManager protocolManager) {
         this.authenticator = authenticator;
         this.clientManager = clientManager;
         this.consoleManager = consoleManager;
         this.protocolManager = protocolManager;
+    }
+
+    public static ProgramRunner getInstance() {
+        ProgramRunner result = instance;
+        if (result == null) {
+            instance = result = new ProgramRunner(
+                    AuthenticatorImpl.getInstance(),
+                    ClientManagerImpl.getInstance(),
+                    ConsoleManagerImpl.getInstance(),
+                    ProtocolManagerImpl.getInstance());
+        }
+        return result;
     }
 
     public void start() {
@@ -46,10 +62,10 @@ public class ProgramRunner {
 
     private void startLoginProcess() {
         consoleManager.show("Please login to continue!");
-        String username = getCredentials("Username: ");
+        String userName = getCredentials("Username: ");
         String password = getCredentials("Password: ");
 
-        LoginStatus loginStatus = authenticator.login(username, password);
+        LoginStatus loginStatus = authenticator.login(userName, password);
         if (loginStatus == LoginStatus.LOGIN_FAILED) {
             consoleManager.show("Login failed!");
         } else {
@@ -70,14 +86,14 @@ public class ProgramRunner {
         int accountChoice = consoleManager.getDecimalInput();
         switch (accountChoice) {
             case 1 -> authenticator.logout();
-            case 2 -> createNewClient();
-            case 3 -> createNewEmployee();
-            case 4 -> viewStatisticsForEmployees();
+            case 2 -> runNewClientProcess();
+            case 3 -> runNewEmployeeProcess();
+            case 4 -> runStatisticsForEmployees();
             default -> consoleManager.show("No such option!");
         }
     }
 
-    private void viewStatisticsForEmployees() {
+    private void runStatisticsForEmployees() {
         consoleManager.showStatisticsOptions();
         int accountChoice = consoleManager.getDecimalInput();
         switch (accountChoice) {
@@ -87,31 +103,34 @@ public class ProgramRunner {
         }
     }
 
-    //TODO
     private void runStatisticsByWeekNumber() {
         consoleManager.show("Enter week number: ");
-        int weekNum = consoleManager.getDecimalInput();
-        Map<PublicAccount, Integer> workingTimePerEmployeePerWeek = protocolManager.getWorkingTimePerEmployeePerWeek(weekNum);
-        consoleManager.printMap(workingTimePerEmployeePerWeek);
+        int weekNumber = consoleManager.getDecimalInput();
+
+        Map<PublicAccount, Integer> workingTimesOfEmployees = protocolManager.getEmployeesWorkingTimesByWeekInput(weekNumber);
+        if (workingTimesOfEmployees.isEmpty()) consoleManager.show("No data for week " + weekNumber);
+        else consoleManager.printMap(workingTimesOfEmployees);
     }
 
-    //TODO - its working, but it can be improved!
     private void runStatisticsByEmployeeName() {
-        consoleManager.printList(authenticator.getEmployees());
+        List<PublicAccount> employees = authenticator.getEmployees();
+        consoleManager.printList(employees);
         consoleManager.show("Choose employee number:");
-        int accountChoice = consoleManager.getListIndexInput(authenticator.getEmployees());
-        String empName = authenticator.getEmployees().get(accountChoice).userName;
+        int accountChoice = consoleManager.getListIndexInput(employees);
+        PublicAccount selectedEmployee = employees.get(accountChoice);
+        String employeeName = selectedEmployee.userName;
 
-        Map<Client, Integer> workingTimesPerClient = protocolManager.getWorkingTimesPerClientByEmployeeName(empName);
-        consoleManager.printMap(workingTimesPerClient);
+        Map<Client, Integer> workingTimesForClients = protocolManager.getClientsWorkingTimesByEmployeeNameInput(employeeName);
+        if (workingTimesForClients.isEmpty()) consoleManager.show("No data for employee " + employeeName);
+        else consoleManager.printMap(workingTimesForClients);
     }
 
-    private void createNewEmployee() {
+    private void runNewEmployeeProcess() {
         consoleManager.show("Enter employee name: ");
-        String empName = consoleManager.getTextInput();
+        String employeeUserName = consoleManager.getTextInput();
         consoleManager.show("Enter employee password: ");
-        String empPass = consoleManager.getTextInput();
-        boolean isRegistered = authenticator.registerEmployee(empName, empPass);
+        String employeePassword = consoleManager.getTextInput();
+        boolean isRegistered = authenticator.registerEmployee(employeeUserName, employeePassword);
         if (isRegistered) {
             consoleManager.show("New employee was successfully registered!");
         } else {
@@ -119,13 +138,13 @@ public class ProgramRunner {
         }
     }
 
-    private void createNewClient() {
+    private void runNewClientProcess() {
         consoleManager.show("Enter client name: ");
         String clientName = consoleManager.getTextInput();
         consoleManager.show("Enter client project name: ");
         String clientProject = consoleManager.getTextInput();
         consoleManager.show("Enter contract end date: " + DateParser.DATE_FORMAT);
-        String contractEndDate = consoleManager.getTextInput();
+        Date contractEndDate = getInputDate();
 
         boolean isRegistered = clientManager.registerClient(clientName, clientProject, contractEndDate);
         if (isRegistered) {
@@ -140,23 +159,37 @@ public class ProgramRunner {
         int accountChoice = consoleManager.getDecimalInput();
         switch (accountChoice) {
             case 1 -> authenticator.logout();
-            case 2 -> createProtocolForTodayProcess();
+            case 2 -> runNewProtocolProcess();
             default -> consoleManager.show("No such option!");
         }
     }
 
-    private String getCredentials(String text) {
-        consoleManager.show(text);
-        return consoleManager.getTextInput();
-    }
-
-    private void createProtocolForTodayProcess() {
+    private void runNewProtocolProcess() {
         Date selectedDate = getInputDate();
         PublicAccount employee = authenticator.getLoggedAccount();
-        List<Client> clients = clientManager.getClients();
-        List<Pair> workingTimesPerClient = getWorkingTimesPerClientInput(clients);
+        List<Pair> workingTimesForClients = getWorkingTimesForClientsInput();
 
-        protocolManager.createProtocol(selectedDate, employee, workingTimesPerClient);
+        protocolManager.createProtocol(selectedDate, employee, workingTimesForClients);
+    }
+
+    private List<Pair> getWorkingTimesForClientsInput() {
+        List<Pair> workingTimesForClients = new ArrayList<>();
+        List<Client> clients = clientManager.getClients();
+        boolean repeat = true;
+
+        while (repeat) {
+            consoleManager.printList(clients);
+            consoleManager.show("Select client: ");
+            Client selectedClient = clients.get(consoleManager.getListIndexInput(clients));
+            consoleManager.show("Select working time in minutes: ");
+            int selectedWorkingTime = consoleManager.getDecimalInput();
+            workingTimesForClients.add(new Pair(selectedClient, selectedWorkingTime));
+
+            consoleManager.show("Do you want to continue - type \"Yes\"?");
+            String userChoice = consoleManager.getTextInput();
+            repeat = userChoice.equalsIgnoreCase("yes");
+        }
+        return workingTimesForClients;
     }
 
     private Date getInputDate() {
@@ -168,21 +201,8 @@ public class ProgramRunner {
         return DateParser.parse(dateInput);
     }
 
-    private List<Pair> getWorkingTimesPerClientInput(List<Client> clients) {
-        List<Pair> workingTimesPerClient = new ArrayList<>();
-
-        while (true) {
-            consoleManager.printList(clients);
-            consoleManager.show("Select client: ");
-            Client selectedClient = clients.get(consoleManager.getListIndexInput(clients));
-            consoleManager.show("Select working time in minutes: ");
-            int selectedWorkingTime = consoleManager.getDecimalInput();
-            workingTimesPerClient.add(new Pair(selectedClient, selectedWorkingTime));
-
-            consoleManager.show("Continue Y/N?");
-            String userChoice = consoleManager.getTextInput();
-            if (userChoice.equalsIgnoreCase("n")) break;
-        }
-        return workingTimesPerClient;
+    private String getCredentials(String text) {
+        consoleManager.show(text);
+        return consoleManager.getTextInput();
     }
 }

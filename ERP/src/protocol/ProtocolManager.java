@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface ProtocolManager {
-    Map<Client, Integer> getWorkingTimesPerClientByEmployeeName(String empName);
+    Map<Client, Integer> getClientsWorkingTimesByEmployeeNameInput(String empName);
 
     void createProtocol(Date date, PublicAccount account, List<Pair> workingTimesPerClient);
 
-    Map<PublicAccount, Integer> getWorkingTimePerEmployeePerWeek(int weekNum);
+    Map<PublicAccount, Integer> getEmployeesWorkingTimesByWeekInput(int weekNum);
 
 }

@@ -5,18 +5,18 @@ import java.util.stream.Collectors;
 
 public class AuthenticatorImpl implements Authenticator {
 
+    private static AuthenticatorImpl instance;
     private final AccountDatabaseImpl accountDatabase;
     private Account loggedAccount;
-    private static AuthenticatorImpl instance;
 
     private AuthenticatorImpl() {
         this.accountDatabase = AccountDatabaseImpl.getInstance();
         this.loggedAccount = null;
     }
 
-    public static AuthenticatorImpl getInstance(){
+    public static AuthenticatorImpl getInstance() {
         AuthenticatorImpl result = instance;
-        if (result == null){
+        if (result == null) {
             instance = result = new AuthenticatorImpl();
         }
         return result;
@@ -30,7 +30,7 @@ public class AuthenticatorImpl implements Authenticator {
     @Override
     public LoginStatus login(String name, String password) {
         Account account = accountDatabase.getAccount(name);
-        if (account != null && account.getAccountPassword().equals(password)){
+        if (account != null && account.getAccountPassword().equals(password)) {
             loggedAccount = account;
             return loggedAccount instanceof Admin ? LoginStatus.ADMIN_LOGGED : LoginStatus.EMPLOYEE_LOGGED;
         }
@@ -44,7 +44,7 @@ public class AuthenticatorImpl implements Authenticator {
 
     @Override
     public boolean registerEmployee(String name, String password) {
-        if (accountDatabase.accountExists(name)){
+        if (accountDatabase.accountExists(name)) {
             return false;
         }
 

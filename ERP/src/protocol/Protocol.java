@@ -16,7 +16,7 @@ public class Protocol implements Serializable {
 
     public Protocol(Date protocolDate, PublicAccount employee, List<Pair> workingTimesPerClient) {
         this.protocolDate = protocolDate;
-        weekNum = DateParser.parseWeekNum(protocolDate);
+        weekNum = DateParser.parseWeekNumber(protocolDate);
         this.employee = employee;
         this.workingTimesPerClient = workingTimesPerClient;
 

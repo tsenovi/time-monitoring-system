@@ -1,7 +1,5 @@
 package console;
 
-import client.Client;
-
 import java.util.List;
 import java.util.Map;
 
