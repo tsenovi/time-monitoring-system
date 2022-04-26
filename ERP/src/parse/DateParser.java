@@ -32,7 +32,7 @@ public class DateParser {
 
     private static boolean isCorrectInput(String data) {
         try {
-            DateParser.sdfDate.parse(data);
+            sdfDate.parse(data);
         } catch (ParseException e) {
             return false;
         }
