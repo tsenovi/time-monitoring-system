@@ -5,37 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a4817cb-453e-456e-a1f2-f40e2e1d602d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabaseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/AccountDatabaseImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/authentication/AuthenticatorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/authentication/AuthenticatorImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/client/ClientDatabaseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/client/ClientDatabaseImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/client/ClientManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/client/ClientManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/client/ClientManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/client/ClientManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/console/ConsoleManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/console/ConsoleManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/parse/DateParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/parse/DateParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/parse/IOcontroller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/Protocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/Protocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolDatabaseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolDatabaseImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/protocol/ProtocolManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ERP/system/ProgramRunner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protocols.db" beforeDir="false" afterPath="$PROJECT_DIR$/protocols.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/AccountDatabaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/AccountDatabaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authentication/AuthenticatorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/authentication/AuthenticatorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientDatabaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientDatabaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/console/ConsoleManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parse/DateParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parse/DateParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parse/IOcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parse/ControllerIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/Protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolDatabaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolDatabaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/protocol/ProtocolManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/ProgramRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/ProgramRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

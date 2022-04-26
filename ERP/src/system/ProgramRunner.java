@@ -55,12 +55,12 @@ public class ProgramRunner {
             if (authenticator.hasLoggedAccount()) {
                 processAccountOptions();
             } else {
-                startLoginProcess();
+                runLoginProcess();
             }
         }
     }
 
-    private void startLoginProcess() {
+    private void runLoginProcess() {
         consoleManager.show("Please login to continue!");
         String userName = getCredentials("Username: ");
         String password = getCredentials("Password: ");
@@ -179,13 +179,14 @@ public class ProgramRunner {
 
         while (repeat) {
             consoleManager.printList(clients);
-            consoleManager.show("Select client: ");
-            Client selectedClient = clients.get(consoleManager.getListIndexInput(clients));
-            consoleManager.show("Select working time in minutes: ");
+            consoleManager.show("Select client number: ");
+            int selectedClientIndex = consoleManager.getListIndexInput(clients);
+            Client selectedClient = clients.get(selectedClientIndex);
+            consoleManager.show("Insert working time in minutes: ");
             int selectedWorkingTime = consoleManager.getDecimalInput();
             workingTimesForClients.add(new Pair(selectedClient, selectedWorkingTime));
 
-            consoleManager.show("Do you want to continue - type \"Yes\"?");
+            consoleManager.show("If you want to continue - type \"Yes\"! For exit - press Enter!");
             String userChoice = consoleManager.getTextInput();
             repeat = userChoice.equalsIgnoreCase("yes");
         }
